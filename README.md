@@ -38,7 +38,7 @@ etcd.set('hello', 'world', function (err) {
 ### .get(string, [callback])
 
 ```js
-etcd.get('hello', function (err) {
+etcd.get('hello', function (err, result) {
   if (err) throw err;
 });
 ```
@@ -54,7 +54,7 @@ etcd.del('hello', function (err) {
 ### .list(string, [callback])
 
 ```js
-etcd.set('prefix', function (err) {
+etcd.list('prefix', function (err, items) {
   if (err) throw err;
 });
 ```
