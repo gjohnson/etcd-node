@@ -22,6 +22,12 @@ etcd.get('hello', function (err, value) {
 });
 ```
 
+## TODO
+
+  - watch
+  - encoding (json|string)
+  - testAndSet
+
 ## License
 
 MIT
