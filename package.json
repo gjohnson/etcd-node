@@ -1,0 +1,34 @@
+{
+  "name": "etcd",
+  "version": "0.0.0",
+  "description": "etcd client for node",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gjohnson/node-etcd"
+  },
+  "keywords": [
+    "etcd",
+    "coreos",
+    "raft"
+  ],
+  "author": "Garrett Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gjohnson/node-etcd/issues"
+  },
+  "dependencies": {
+    "superagent": "~0.15.5"
+  },
+  "devDependencies": {
+    "should": "~2.0.1",
+    "mocha": "~1.13.0"
+  }
+}
