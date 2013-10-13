@@ -14,6 +14,19 @@ describe('Commands', function () {
         done();
       });
     });
+
+    it('should set a key with ttl', function (done) {
+      etcd.set('hai', 'there', { ttl: 1 }, function (err) {
+        setTimeout(function () {
+          etcd.get('hai', function (err) {
+            err.should.have.property('message', 'Key Not Found');
+            err.should.have.property('code', 100);
+            err.should.have.property('cause', 'get: /hai');
+            done();
+          });
+        }, 1050);
+      });
+    });
   });
 
   describe('GET', function () {

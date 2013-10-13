@@ -4,8 +4,9 @@ TESTS ?= $(wildcard test/*.test.js)
 test:
 	@NODE_ENV=test ./node_modules/.bin/mocha $(TESTS) \
 		--require "should" \
+		--timeout 2000 \
+		--reporter $(REPORTER) \
 		--growl \
-		--reporter $(REPORTER)
 
 test-cov: lib-cov
 	@ETCD_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
