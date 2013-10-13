@@ -75,6 +75,24 @@ describe('Commands', function () {
     });
   });
 
+  describe('WATCH', function () {
+    it('should watch for changes', function (done) {
+      var ran = false;
+
+      etcd.watch('my-service', function (err, result) {
+        should.not.exist(err);
+        result.should.have.property('value', '3001');
+        done();
+      });
+
+      setTimeout(function () {
+        etcd.set('my-service', '3001', function (err, result) {
+          should.not.exist(err);
+        });
+      }, 25);
+    });
+  });
+
 });
 
 /**
