@@ -27,13 +27,23 @@ etcd.configure({
 
 I am still implementing commands, but here is what we have so far:
 
-### .set(string, mixed, [callback])
+### .set(string, mixed, [options], [callback])
 
 ```js
 etcd.set('hello', 'world', function (err) {
   if (err) throw err;
 });
 ```
+
+Set with a TTL:
+
+```js
+etcd.set('hello', 'world', { ttl: 5 }, callback);
+```
+
+setAndTest
+
+
 
 ### .get(string, [callback])
 
@@ -59,11 +69,17 @@ etcd.list('prefix', function (err, items) {
 });
 ```
 
+### .watch(string, [callback])
+
+```js
+etcd.watch('prefix', function (err, items) {
+  if (err) throw err;
+});
+```
+
 ## TODO
 
-  - watch
   - encoding (json|string)
-  - testAndSet
 
 ## License
 
