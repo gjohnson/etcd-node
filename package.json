@@ -25,7 +25,8 @@
     "url": "https://github.com/gjohnson/node-etcd/issues"
   },
   "dependencies": {
-    "superagent": "~0.15.5"
+    "superagent": "~0.15.5",
+    "debug": "~0.7.2"
   },
   "devDependencies": {
     "should": "~2.0.1",
