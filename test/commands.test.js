@@ -106,6 +106,16 @@ describe('Commands', function () {
     });
   });
 
+  describe('LEADER', function () {
+    it('should fetch the leader of the cluster', function (done) {
+      etcd.leader(function (err, host) {
+        should.not.exist(err);
+        host.should.equal('http://127.0.0.1:7001');
+        done();
+      });
+    });
+  });
+
 });
 
 /**

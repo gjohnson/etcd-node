@@ -97,6 +97,14 @@ etcd.machines(function (err, list) {
 });
 ```
 
+### .leader(callback)
+
+```js
+etcd.leader(function (err, host) {
+  if (err) throw err;
+});
+```
+
 ## TODO
 
   - encoding (json|string)
