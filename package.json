@@ -1,6 +1,6 @@
 {
   "name": "etcd",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "etcd client for node",
   "main": "index.js",
   "directories": {
