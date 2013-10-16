@@ -38,18 +38,25 @@ etcd.set('hello', 'world', function (err) {
 Set with a TTL:
 
 ```js
-etcd.set('hello', 'world', { ttl: 5 }, callback);
+etcd.set('hello', 'world', { ttl: 5 }, function (err) {
+  if (err) throw err;
+});
 ```
 
-setAndTest
+Set using a "setAndTest":
 
-
+```js
+etcd.set('hello', 'world', { prev: 'world' }, function (err) {
+  if (err) throw err;
+});
+```
 
 ### .get(string, [callback])
 
 ```js
 etcd.get('hello', function (err, result) {
   if (err) throw err;
+  assert(result.value);
 });
 ```
 
@@ -72,7 +79,7 @@ etcd.list('prefix', function (err, items) {
 ### .watch(string, [callback])
 
 ```js
-etcd.watch('prefix', function (err, items) {
+etcd.watch('prefix', function (err) {
   if (err) throw err;
 });
 ```
