@@ -7,6 +7,11 @@ An alternative client library for interacting with etcd from node.js (without co
 
 This is not stable at all! I am writing this module as I learn more about [etcd](http://coreos.com/docs/guides/etcd/), feel free to [help](https://github.com/gjohnson/etcd-node/issues)!
 
+## Install
+
+```sh
+$ npm install etcd
+```
 
 ## Configuring.
 
