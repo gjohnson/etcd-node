@@ -18,39 +18,40 @@ describe('Commands', function () {
     it('should set a key with ttl', function (done) {
       etcd.set('hai', 'there', { ttl: 1 }, function (err) {
         setTimeout(function () {
-          etcd.get('hai', function (err) {
-            err.should.have.property('message', 'Key Not Found');
-            err.should.have.property('code', 100);
-            err.should.have.property('cause', 'get: /hai');
+          etcd.get('hai', function (err, result) {
+            should.not.exist(err);
+            result.should.not.have.property('value');
             done();
           });
-        }, 1050);
+        }, 1025);
       });
     });
   });
 
   describe('GET', function () {
     it('should get key with value', function (done) {
-      etcd.set('hi', 'bye');
-      etcd.get('hi', function (err, result) {
-        should.not.exist(err);
-        result.should.have.property('action', 'GET');
-        result.should.have.property('key', '/hi');
-        result.should.have.property('value', 'bye');
-        done();
+      etcd.set('hi', 'bye', function () {
+        etcd.get('hi', function (err, result) {
+          should.not.exist(err);
+          result.should.have.property('action', 'GET');
+          result.should.have.property('key', '/hi');
+          result.should.have.property('value', 'bye');
+          done();
+        });
       });
     });
   });
 
   describe('DEL', function () {
     it('should delete key', function (done) {
-      etcd.set('yoo', 'bye');
-      etcd.del('yoo', function (err, result) {
-        should.not.exist(err);
-        result.should.have.property('action', 'DELETE');
-        result.should.have.property('key', '/yoo');
-        result.should.have.property('prevValue', 'bye');
-        done();
+      etcd.set('yoo', 'bye', function () {
+        etcd.del('yoo', function (err, result) {
+          should.not.exist(err);
+          result.should.have.property('action', 'DELETE');
+          result.should.have.property('key', '/yoo');
+          result.should.have.property('prevValue', 'bye');
+          done();
+        });
       });
     });
   });
@@ -77,8 +78,6 @@ describe('Commands', function () {
 
   describe('WATCH', function () {
     it('should watch for changes', function (done) {
-      var ran = false;
-
       etcd.watch('my-service', function (err, result) {
         should.not.exist(err);
         result.should.have.property('value', '3001');
