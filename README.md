@@ -89,6 +89,14 @@ etcd.watch('prefix', function (err) {
 });
 ```
 
+### .machines(callback)
+
+```js
+etcd.machines(function (err, list) {
+  if (err) throw err;
+});
+```
+
 ## TODO
 
   - encoding (json|string)

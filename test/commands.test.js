@@ -92,6 +92,20 @@ describe('Commands', function () {
     });
   });
 
+  describe('MACHINES', function () {
+    it('should list the machines in the cluster', function (done) {
+      etcd.machines(function (err, list) {
+        should.not.exist(err);
+        list.should.have.instanceof(Array);
+        list.should.have.length(3);
+        list.should.include('http://127.0.0.1:4001');
+        list.should.include('http://127.0.0.1:4002');
+        list.should.include('http://127.0.0.1:4003');
+        done();
+      });
+    });
+  });
+
 });
 
 /**
