@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gjohnson/node-etcd"
+    "url": "git@github.com:gjohnson/etcd-node"
   },
   "keywords": [
     "etcd",
@@ -22,7 +22,7 @@
   "author": "Garrett Johnson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gjohnson/node-etcd/issues"
+    "url": "https://github.com/gjohnson/etcd-node/issues"
   },
   "dependencies": {
     "superagent": "~0.15.5",
